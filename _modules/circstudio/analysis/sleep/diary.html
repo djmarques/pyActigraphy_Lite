@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>circstudio.analysis.sleep.diary &#8212; circStudio  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/circstudio/analysis/sleep/diary';</script>
+    <link rel="canonical" href="https://djmarques.github.io/circStudio/_modules/circstudio/analysis/sleep/diary.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">circStudio  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_0.html">Quick setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_1.html">Opening and processing actigraphy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_2.html">Preprocessing actigraphy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_3.html">Calculating common activity and light metrics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_4.html">Mathematical models of circadian rhythms using light intensity data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_5.html">Single-component cosinor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_6.html">Singular Spectrum Analysis (SSA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_7.html">(Multi-fractal)Detrended fluctuation analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial_8.html">Functional Linear Modelling (FLM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api.html">API Reference</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for circstudio.analysis.sleep.diary</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyexcel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pxl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.sleep</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="SleepDiary">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SleepDiary</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for reading sleep diaries.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    This code is derived from the original implementation in pyActigraphy, distributed under the BSD 3-Clause License.</span>
+<span class="sd">    Original author: Grégory Hammad (gregory.hammad@uliege.be).</span>
+
+<span class="sd">    [1] Hammad, G., Reyt, M., Beliy, N., Baillet, M., Deantoni, M., Lesoinne, A., Muto, V., &amp; Schmidt, C. (2021).</span>
+<span class="sd">    pyActigraphy: Open-source python package for actigraphy data visualization and analysis.</span>
+<span class="sd">    PLoS Computational Biology, 17(10), 1009514–1009535. https://doi.org/10.1371/journal.pcbi.1009514</span>
+
+<span class="sd">    [2] Hammad, G., Wulff, K., Skene, D. J., Münch, M., &amp; Spitschan, M. (2024). Open-Source Python Module for the</span>
+<span class="sd">    Analysis of Personalized Light Exposure Data from Wearable Light Loggers and Dosimeters.</span>
+<span class="sd">    LEUKOS, 20(4), 380–389. https://doi.org/10.1080/15502724.2023.2296863</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">input_fname</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="p">,</span>
+        <span class="n">periods</span><span class="p">,</span>
+        <span class="n">frequency</span><span class="p">,</span>
+        <span class="n">header_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">state_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">state_colour</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+
+        <span class="c1"># Set the default state index and color if not specified by the user</span>
+        <span class="k">if</span> <span class="n">state_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">state_index</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;NAP&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;NIGHT&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;NOWEAR&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">state_colour</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">state_colour</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;NAP&quot;</span><span class="p">:</span> <span class="s2">&quot;#7bc043&quot;</span><span class="p">,</span> <span class="s2">&quot;NIGHT&quot;</span><span class="p">:</span> <span class="s2">&quot;#d3d3d3&quot;</span><span class="p">,</span> <span class="s2">&quot;NOWEAR&quot;</span><span class="p">:</span> <span class="s2">&quot;#ee4035&quot;</span><span class="p">}</span>
+
+        <span class="c1"># Get absolute file path</span>
+        <span class="n">input_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">input_fname</span><span class="p">)</span>
+
+        <span class="n">sd_array</span> <span class="o">=</span> <span class="n">pxl</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="n">file_name</span><span class="o">=</span><span class="n">input_fname</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">sd_array</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">sd_array</span><span class="p">[</span><span class="n">header_size</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:],</span> <span class="n">columns</span><span class="o">=</span><span class="n">sd_array</span><span class="p">[</span><span class="n">header_size</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s2">&quot;TYPE&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> <span class="s2">&quot;START&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">,</span> <span class="s2">&quot;END&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime64[ns]&quot;</span><span class="p">})</span>
+
+        <span class="c1"># Inplace drop of useless columns</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;DURATION (min)&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Inplace drop of NA</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_index</span> <span class="o">=</span> <span class="n">state_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_colour</span> <span class="o">=</span> <span class="n">state_colour</span>
+
+        <span class="c1"># Create a time series with ACTIVE as default value.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_raw_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_state_index</span><span class="p">[</span><span class="s2">&quot;ACTIVE&quot;</span><span class="p">],</span>
+            <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start_time</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">frequency</span><span class="p">),</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Replace the default value with the ones found in the sleep diary.</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_raw_data</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;START&quot;</span><span class="p">]</span> <span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;END&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_index</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;TYPE&quot;</span><span class="p">]]</span>
+
+        <span class="c1"># Create a template shape to overlay over a plotly plot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_shaded_area</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;rect&quot;</span><span class="p">,</span>
+            <span class="n">xref</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+            <span class="n">yref</span><span class="o">=</span><span class="s2">&quot;paper&quot;</span><span class="p">,</span>
+            <span class="n">x0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">y0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">x1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">y1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">fillcolor</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+            <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;below&quot;</span><span class="p">,</span>
+            <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The name of the subject.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">diary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The dataframe containing the data found in the sleep diary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The indices assigned to the states found in the sleep diary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_index</span>
+
+    <span class="nd">@state_index</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_index</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_colour</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The colours assigned to the states found in the sleep diary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_colour</span>
+
+    <span class="nd">@state_colour</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_colour</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_colour</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">raw_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The time series related to the states found in the sleep diary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raw_data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shaded_area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The template shape which can be overlaid over a plotly plot of the</span>
+<span class="sd">        associated actimetry time series.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shaded_area</span>
+
+    <span class="nd">@shaded_area</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shaded_area</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_shaded_area</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="SleepDiary.shapes">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.shapes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shapes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+        <span class="n">shapes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shaded_area</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">shape</span><span class="p">[</span><span class="s2">&quot;x0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;START&quot;</span><span class="p">]</span>
+            <span class="n">shape</span><span class="p">[</span><span class="s2">&quot;x1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;END&quot;</span><span class="p">]</span>
+            <span class="n">shape</span><span class="p">[</span><span class="s2">&quot;fillcolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_colour</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;TYPE&quot;</span><span class="p">]]</span>
+            <span class="n">shapes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">shapes</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.summary">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.summary">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a dataframe of summary statistics.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;DURATION&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="p">[</span><span class="s2">&quot;DURATION&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="p">[</span><span class="s2">&quot;END&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="p">[</span><span class="s2">&quot;START&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;TYPE&quot;</span><span class="p">])[</span><span class="s2">&quot;DURATION&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.state_infos">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.state_infos">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state_infos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns summary statistics for a given state</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        state: str</span>
+<span class="sd">            State of interest</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mean: pd.Timedelta</span>
+<span class="sd">            Mean duration of the required state.</span>
+<span class="sd">        std: pd.Timedelta</span>
+<span class="sd">            Standard deviation of the durations of the required state.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        This code is derived from the original implementation in pyActigraphy, distributed under the BSD 3-Clause License.</span>
+<span class="sd">        Original author: Grégory Hammad (gregory.hammad@uliege.be).</span>
+
+<span class="sd">        [1] Hammad, G., Reyt, M., Beliy, N., Baillet, M., Deantoni, M., Lesoinne, A., Muto, V., &amp; Schmidt, C. (2021).</span>
+<span class="sd">        pyActigraphy: Open-source python package for actigraphy data visualization and analysis.</span>
+<span class="sd">        PLoS Computational Biology, 17(10), 1009514–1009535. https://doi.org/10.1371/journal.pcbi.1009514</span>
+
+<span class="sd">        [2] Hammad, G., Wulff, K., Skene, D. J., Münch, M., &amp; Spitschan, M. (2024). Open-Source Python Module for the</span>
+<span class="sd">        Analysis of Personalized Light Exposure Data from Wearable Light Loggers and Dosimeters.</span>
+<span class="sd">        LEUKOS, 20(4), 380–389. https://doi.org/10.1080/15502724.2023.2296863</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Re-use the summary function</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+        <span class="c1"># Verify that the state is present in the summary object</span>
+        <span class="k">if</span> <span class="n">state</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">summary</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is not a valid state. Valid states are </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">state</span><span class="p">,</span> <span class="s1">&#39;&quot; or &quot;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Access the summary object to get the mean</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">]</span>
+        <span class="c1"># Access the summary object to get the std</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.total_bed_time">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.total_bed_time">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_bed_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;NIGHT&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the total in-bed time</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        state : str, optional</span>
+<span class="sd">            State of interest.</span>
+<span class="sd">            Default is &#39;NIGHT&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mean: pd.Timedelta</span>
+<span class="sd">            Mean duration of the required state.</span>
+<span class="sd">        std: pd.Timedelta</span>
+<span class="sd">            Standard deviation of the durations of the required state.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        This code is derived from the original implementation in pyActigraphy, distributed under the BSD 3-Clause License.</span>
+<span class="sd">        Original author: Grégory Hammad (gregory.hammad@uliege.be).</span>
+
+<span class="sd">        [1] Hammad, G., Reyt, M., Beliy, N., Baillet, M., Deantoni, M., Lesoinne, A., Muto, V., &amp; Schmidt, C. (2021).</span>
+<span class="sd">        pyActigraphy: Open-source python package for actigraphy data visualization and analysis.</span>
+<span class="sd">        PLoS Computational Biology, 17(10), 1009514–1009535. https://doi.org/10.1371/journal.pcbi.1009514</span>
+
+<span class="sd">        [2] Hammad, G., Wulff, K., Skene, D. J., Münch, M., &amp; Spitschan, M. (2024). Open-Source Python Module for the</span>
+<span class="sd">        Analysis of Personalized Light Exposure Data from Wearable Light Loggers and Dosimeters.</span>
+<span class="sd">        LEUKOS, 20(4), 380–389. https://doi.org/10.1080/15502724.2023.2296863</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_infos</span><span class="p">(</span><span class="n">state</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.total_nap_time">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.total_nap_time">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_nap_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;NAP&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the total nap time</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        state : str, optional</span>
+<span class="sd">            State of interest.</span>
+<span class="sd">            Default is &#39;NAP&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mean: pd.Timedelta</span>
+<span class="sd">            Mean duration of the required state.</span>
+<span class="sd">        std: pd.Timedelta</span>
+<span class="sd">            Standard deviation of the durations of the required state.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        This code is derived from the original implementation in pyActigraphy, distributed under the BSD 3-Clause License.</span>
+<span class="sd">        Original author: Grégory Hammad (gregory.hammad@uliege.be).</span>
+
+<span class="sd">        [1] Hammad, G., Reyt, M., Beliy, N., Baillet, M., Deantoni, M., Lesoinne, A., Muto, V., &amp; Schmidt, C. (2021).</span>
+<span class="sd">        pyActigraphy: Open-source python package for actigraphy data visualization and analysis.</span>
+<span class="sd">        PLoS Computational Biology, 17(10), 1009514–1009535. https://doi.org/10.1371/journal.pcbi.1009514</span>
+
+<span class="sd">        [2] Hammad, G., Wulff, K., Skene, D. J., Münch, M., &amp; Spitschan, M. (2024). Open-Source Python Module for the</span>
+<span class="sd">        Analysis of Personalized Light Exposure Data from Wearable Light Loggers and Dosimeters.</span>
+<span class="sd">        LEUKOS, 20(4), 380–389. https://doi.org/10.1080/15502724.2023.2296863</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_infos</span><span class="p">(</span><span class="n">state</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.total_nowear_time">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.total_nowear_time">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_nowear_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;NOWEAR&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns the total &#39;no-wear&#39; time</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        state : str, optional</span>
+<span class="sd">            State of interest.</span>
+<span class="sd">            Default is &#39;NOWEAR&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mean: pd.Timedelta</span>
+<span class="sd">            Mean duration of the required state.</span>
+<span class="sd">        std: pd.Timedelta</span>
+<span class="sd">            Standard deviation of the durations of the required state.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        This code is derived from the original implementation in pyActigraphy, distributed under the BSD 3-Clause License.</span>
+<span class="sd">        Original author: Grégory Hammad (gregory.hammad@uliege.be).</span>
+
+<span class="sd">        [1] Hammad, G., Reyt, M., Beliy, N., Baillet, M., Deantoni, M., Lesoinne, A., Muto, V., &amp; Schmidt, C. (2021).</span>
+<span class="sd">        pyActigraphy: Open-source python package for actigraphy data visualization and analysis.</span>
+<span class="sd">        PLoS Computational Biology, 17(10), 1009514–1009535. https://doi.org/10.1371/journal.pcbi.1009514</span>
+
+<span class="sd">        [2] Hammad, G., Wulff, K., Skene, D. J., Münch, M., &amp; Spitschan, M. (2024). Open-Source Python Module for the</span>
+<span class="sd">        Analysis of Personalized Light Exposure Data from Wearable Light Loggers and Dosimeters.</span>
+<span class="sd">        LEUKOS, 20(4), 380–389. https://doi.org/10.1080/15502724.2023.2296863</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_infos</span><span class="p">(</span><span class="n">state</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.sleep_efficiency">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.sleep_efficiency">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep_efficiency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes sleep efficiency as the average total sleep time, as classified by the Roenneberg algorithm,</span>
+<span class="sd">        divided by the average total sleep time, as identified in the sleep diary.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : pd.Series</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            Sleep efficiency (decimal)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Calculate average total sleep time (within the main sleep bout)</span>
+        <span class="n">avg_total_sleep_time</span> <span class="o">=</span> <span class="n">main_sleep_bouts</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Calculate average total bedtime (from sleep diary)</span>
+        <span class="n">avg_total_bed_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">total_bed_time</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># If avg_total_bed_time is zero, do not return a result</span>
+        <span class="k">if</span> <span class="n">avg_total_bed_time</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Average total sleep time is 0.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="c1"># If avg_total_bed_time &lt; avg_total_sleep_time</span>
+        <span class="k">if</span> <span class="n">avg_total_sleep_time</span> <span class="o">&gt;</span> <span class="n">avg_total_bed_time</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Average total sleep time is greater than average total sleep time.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">avg_total_sleep_time</span> <span class="o">/</span> <span class="n">avg_total_bed_time</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.sleep_onset_latency">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.sleep_onset_latency">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sleep_onset_latency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes sleep onset latency using the Roenneberg algorithm to predict sleep onset and</span>
+<span class="sd">        the sleep diary to determine total bedtime.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data : pandas.Series</span>
+<span class="sd">            Input data series with a DatetimeIndex, where the index specifies the time points and</span>
+<span class="sd">            the values represent the input variable (e.g., activity, light). Time and value arrays</span>
+<span class="sd">            are extracted from this series.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pd.Series</span>
+<span class="sd">            Array containing sleep onset latency indexed by day of the recording.</span>
+<span class="sd">        pd.Timedelta</span>
+<span class="sd">            Mean sleep onset latency.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">main_sleep_df</span> <span class="o">=</span> <span class="n">main_sleep_bouts</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">diary_nights_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_diary</span><span class="p">[</span><span class="s2">&quot;TYPE&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;NIGHT&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Create an empty dictionary to store sleep_onset_latency (sol) values</span>
+        <span class="n">sol</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Iterate over the rows of the sleep diary corresponding to nighttime</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">diary_nights_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="c1"># Extract the date from the current row</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;START&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+            <span class="c1"># Identify matches between the sleep diary and detected periods of sleep</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="n">main_sleep_df</span><span class="p">[</span><span class="n">main_sleep_df</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span> <span class="o">==</span> <span class="n">date</span><span class="p">]</span>
+
+            <span class="c1"># If a match was found, then calculate the latency between bedtime and sleep onsets</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">matches</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="c1"># Extract sleep onset</span>
+                <span class="n">sleep_onset</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span>
+
+                <span class="c1"># Calculate the latency and store it in the sol dictionary</span>
+                <span class="n">latency</span> <span class="o">=</span> <span class="n">sleep_onset</span> <span class="o">-</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;START&quot;</span><span class="p">]</span>
+
+                <span class="c1"># Return as missing value if predicted sleep time occurs before recorded bed time</span>
+                <span class="k">if</span> <span class="n">latency</span> <span class="o">&lt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+                    <span class="n">latency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+                <span class="c1"># Store the latency for the current date</span>
+                <span class="k">if</span> <span class="n">latency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span>
+                    <span class="n">sol</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">=</span> <span class="n">latency</span>
+        <span class="c1"># Typecast and return, sol to a pd.Series, along with the mean</span>
+        <span class="n">sol</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sol</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SleepDiary.plot">
+<a class="viewcode-back" href="../../../../api.html#circstudio.analysis.sleep.diary.SleepDiary.plot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plot the sleep diary.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        This code is derived from the original implementation in pyActigraphy, distributed under the BSD 3-Clause License.</span>
+<span class="sd">        Original author: Grégory Hammad (gregory.hammad@uliege.be).</span>
+
+<span class="sd">        [1] Hammad, G., Reyt, M., Beliy, N., Baillet, M., Deantoni, M., Lesoinne, A., Muto, V., &amp; Schmidt, C. (2021).</span>
+<span class="sd">        pyActigraphy: Open-source python package for actigraphy data visualization and analysis.</span>
+<span class="sd">        PLoS Computational Biology, 17(10), 1009514–1009535. https://doi.org/10.1371/journal.pcbi.1009514</span>
+
+<span class="sd">        [2] Hammad, G., Wulff, K., Skene, D. J., Münch, M., &amp; Spitschan, M. (2024). Open-Source Python Module for the</span>
+<span class="sd">        Analysis of Personalized Light Exposure Data from Wearable Light Loggers and Dosimeters.</span>
+<span class="sd">        LEUKOS, 20(4), 380–389. https://doi.org/10.1080/15502724.2023.2296863</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Actigraphy data&quot;</span><span class="p">,</span>
+            <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Date time&quot;</span><span class="p">),</span>
+            <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Counts/period&quot;</span><span class="p">),</span>
+            <span class="n">shapes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shapes</span><span class="p">(),</span>
+            <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Daniel Marques
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Daniel Marques | Nuno Morais Lab and Cátia Reis.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
