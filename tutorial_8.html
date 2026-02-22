@@ -376,12 +376,12 @@
 <section id="basis-function-expansion">
 <h2>Basis function expansion<a class="headerlink" href="#basis-function-expansion" title="Link to this heading">#</a></h2>
 <p>The goal of functional linear modelling (FLM) is to represent a noisy activity signal as a smooth function constructed from simpler building blocks called basis functions.</p>
-<p>Formally, we represent the observed signal $x(t_i)$ as a weighted sum of basis functions:
+<p>Formally, we represent the observed signal <em>x</em>(<em>t</em><sub>i</sub>) as a weighted sum of basis functions:
 $$x(t_i) \approx \beta_1 \phi_1(t_i) + \beta_2 \phi_2(t_i) + … + \beta_n \phi_n(t_i) $$</p>
 <p>Here:</p>
 <ul class="simple">
-<li><p>$\phi_n(t)$ are known functions (the <em>basis functions</em>)</p></li>
-<li><p>$\beta_k$ are coefficients estimated from the data</p></li>
+<li><p><em>φ</em><sub>n</sub>(<em>t</em>) are known functions (the <em>basis functions</em>)</p></li>
+<li><p><em>β</em><sub>k</sub> are coefficients estimated from the data</p></li>
 </ul>
 <p>Intuitively, this means we are rebuilding the activity signal as a combination of smooth, structured components, instead of describing it point-by-point.</p>
 <p>Different choices of basis functions lead to different types of smooth representations. In <code class="docutils literal notranslate"><span class="pre">circStudio</span></code>, you can find two:</p>
@@ -395,16 +395,16 @@ $$x(t_i) \approx \beta_1 \phi_1(t_i) + \beta_2 \phi_2(t_i) + … + \beta_n \phi_
 $$x(t) = \beta_0 \phi_0(t) + \sum_{n=1}^{N}[\beta_{2n-1} \sin(n \omega t) + \beta_{2n}cos(n \omega t)]$$</p>
 <p>Where:</p>
 <ul class="simple">
-<li><p>$\phi_0(t) = 1$ (constant term)</p></li>
-<li><p>$\omega = \frac{2 \pi}{T}$</p></li>
-<li><p>$T$ is the period (for daily activity profiles, $T$ = 24 hours).</p></li>
-<li><p>$\beta_k$ are coefficients estimated from the data.</p></li>
+<li><p><em>φ</em><sub>0</sub>(<em>t</em>) = 1 (constant term)</p></li>
+<li><p><em>ω</em> = 2π / <em>T</em></p></li>
+<li><p><em>T</em> is the period (for daily activity profiles, <em>T</em> = 24 hours).</p></li>
+<li><p><em>β</em><sub>k</sub> are coefficients estimated from the data.</p></li>
 </ul>
-<p>These basis functions arise from Fourier series theory, which states that any periodic signal with period $T$ (e.g., actigraphy-derived time series) can be expressed as a sum of sine and cosine waves, with frequency $n \omega = \frac{2 \pi n}{T}$.</p>
+<p>These basis functions arise from Fourier series theory, which states that any periodic signal with period <em>T</em> (e.g., actigraphy-derived time series) can be expressed as a sum of sine and cosine waves, with frequency <em>nω</em> = 2π<em>n</em> / <em>T</em>.</p>
 <section id="geometric-intuition-behind-sine-and-consine-in-fourier-basis-expansion">
 <h4>Geometric intuition behind sine and consine in Fourier basis expansion<a class="headerlink" href="#geometric-intuition-behind-sine-and-consine-in-fourier-basis-expansion" title="Link to this heading">#</a></h4>
-<p>A useful way to build intuition is to think of sine and cosine as coordinates on a unit circle (a circle of radius one). If we move around a unit circle at angular speed $\omega = \frac{2 \pi}{T}$, $\cos(\omega t)$ gives the horizontal coordinate, whereas $\sin(\omega t)$ gives the vertical coordinate. These two functions are called the fundamental (first harmonic) components of the 24-hour rhythm. Together, they complete one full rotation every $T$ hours. In other words, a 24-hour oscillation corresponds to one full rotation per day.</p>
-<p>Higher harmonics $\sin(n \omega t)$, $\cos(n \omega t)$ simply rotate around the circle $n$ times within the same 24-hour interval. Thus, these additional harmonics correspond to faster oscillatory components of the same daily rhythm, and they allow the model to capture wake-sleep transitions and secondary, rhythmic structure.</p>
+<p>A useful way to build intuition is to think of sine and cosine as coordinates on a unit circle (a circle of radius one). If we move around a unit circle at angular speed <em>ω</em> = 2π / <em>T</em>, <em>cos</em>(<em>ωt</em>) gives the horizontal coordinate, whereas <em>sin</em>(<em>ωt</em>) gives the vertical coordinate. These two functions are called the fundamental (first harmonic) components of the 24-hour rhythm. Together, they complete one full rotation every <em>T</em> hours. In other words, a 24-hour oscillation corresponds to one full rotation per day.</p>
+<p>Higher harmonics <em>sin</em>(<em>nωt</em>), <em>cos</em>(<em>nωt</em>) simply rotate around the circle <em>n</em> times within the same 24-hour interval. Thus, these additional harmonics correspond to faster oscillatory components of the same daily rhythm, and they allow the model to capture wake-sleep transitions and secondary, rhythmic structure.</p>
 </section>
 <section id="applying-fourier-flm-in-circstudio">
 <h4>Applying Fourier FLM in <code class="docutils literal notranslate"><span class="pre">circStudio</span></code><a class="headerlink" href="#applying-fourier-flm-in-circstudio" title="Link to this heading">#</a></h4>
