@@ -370,12 +370,12 @@
 <section id="embedding-constructing-the-trajectory-matrix">
 <h3>Embedding: constructing the Trajectory Matrix.<a class="headerlink" href="#embedding-constructing-the-trajectory-matrix" title="Link to this heading">#</a></h3>
 <p>The first step is to transform the one-dimensional time series into a matrix.</p>
-<p>We choose a window length $L$, and then create overlapping segments (sliding windows) of the signal. Each column of the resulting matrix contains one window of length $L$, shifted by one time step relative to the previous column.</p>
+<p>We choose a window length <em>L</em>, and then create overlapping segments (sliding windows) of the signal. Each column of the resulting matrix contains one window of length <em>L</em>, shifted by one time step relative to the previous column.</p>
 <p>For example:</p>
 <ul class="simple">
-<li><p>Column 1: $y_1, y_2, …, y_L$</p></li>
-<li><p>Column 2: $y_2, y_3, …, y_{L+1}$</p></li>
-<li><p>Column 3: $y_3, y_4, …, y_{L+2}$</p></li>
+<li>Column 1: <em>y</em><sub><em>1</em></sub>, <em>y</em><sub><em>2</em></sub>, …, <em>y</em><sub><em>L</em></sub></li>
+<li>Column 2: <em>y</em><sub><em>2</em></sub>, <em>y</em><sub><em>3</em></sub>, …, <em>y</em><sub><em>L+1</em></sub></li>
+<li>Column 3: <em>y</em><sub><em>3</em></sub>, <em>y</em><sub><em>4</em></sub>, …, <em>y</em><sub><em>L+2</em></sub></li>
 </ul>
 <p>This matrix is called the <strong>trajectory matrix</strong>.</p>
 <p>Intuitively, this step reorganizes the signal so that temporal structure (e.g., repeating oscillations) becomes visible as patterns across rows and columns.</p>
@@ -398,13 +398,13 @@
 <li><p>Orders them by importance.</p></li>
 <li><p>Separates signal structure from noise.</p></li>
 </ul>
-<p>Mathematically, SVD decomposes the trajectory matrix $X$ into:
+<p>Mathematically, SVD decomposes the trajectory matrix <em>X</em> into:
 $$X = U \Sigma V^\tau$$</p>
-<p>Conceptually, this decomposition converts the trajectory matrix $X$ in three other matrices:</p>
+<p>Conceptually, this decomposition converts the trajectory matrix <em>X</em> in three other matrices:</p>
 <ul class="simple">
-<li><p>$U$: caracteristic time patterns.</p></li>
-<li><p>$\Sigma$: importance (strength) of each pattern.</p></li>
-<li><p>$V^\tau$: how each pattern evolves across windows.</p></li>
+<li><p><em>U</em>: caracteristic time patterns.</p></li>
+<li><p><em>Σ</em>: importance (strength) of each pattern.</p></li>
+<li><p><em>V</em><sup>τ</sup>: how each pattern evolves across windows.</p></li>
 </ul>
 <p>In the context of analyzing signals mainly with a circadian structure:</p>
 <ul class="simple">
