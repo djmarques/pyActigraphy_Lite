@@ -307,17 +307,17 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-dfa-profile">1. Build the DFA profile</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segment-and-detrend">2. Segment and detrend</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-local-detrended-fluctuations">Computing local detrended fluctuations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#averaging-fluctuations-q-2-standard-dfa">Averaging fluctuations ($q=2$, standard DFA)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fluctuation-function-f-n-standard-dfa">3. Compute the fluctuation function $F(n)$: standard DFA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#averaging-fluctuations-q-2-standard-dfa">Averaging fluctuations (<em>q=2</em>, standard DFA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fluctuation-function-f-n-standard-dfa">3. Compute the fluctuation function <em>F</em>(<em>n</em>): standard DFA</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-time-scales">Define the time scales</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fluctuation-function">Compute the fluctuation function</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-the-hurst-exponent">Estimate the Hurst exponent</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mf-dfa">MF-DFA</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-mf-dfa-fluctuations-across-multiple-q-orders">Compute MF-DFA fluctuations across multiple $q$-orders</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-scaling-curves-across-q">Visualize scaling curves across $q$</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-the-generalized-hurst-exponent-h-q">Estimate the generalized Hurst exponent $h(q)$</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-mf-dfa-fluctuations-across-multiple-q-orders">Compute MF-DFA fluctuations across multiple <em>q</em>-orders</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-scaling-curves-across-q">Visualize scaling curves across <em>q</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-the-generalized-hurst-exponent-h-q">Estimate the generalized Hurst exponent <em>h</em>(<em>q</em>)</a></li>
 </ul>
 </li>
 </ul>
@@ -378,14 +378,14 @@
 <p>DFA/MF-DFA can be divided in three main steps:</p>
 <ol class="arabic simple">
 <li><p>Integrate the signal into a profile after mean centering.</p></li>
-<li><p>Segment the profile into windows of length $n$ and detrend each segment.</p></li>
-<li><p>Quantify fluctuation amplitude $F(n)$ as a function of window size $n$.</p></li>
+<li><p>Segment the profile into windows of length <em>n</em> and detrend each segment.</p></li>
+<li><p>Quantify fluctuation amplitude <em>F</em>(<em>n</em>) as a function of window size <em>n</em></p></li>
 </ol>
-<p>If the signal shows scale-invariant structure, the fluctuation function $F(n)$  follows an approximate powerlaw over a range of scales $n$:
+<p>If the signal shows scale-invariant structure, the fluctuation function <em>F</em>(<em>n</em>) follows an approximate powerlaw over a range of scales <em>n</em>:
 $$F(n) \propto n^h$$</p>
 <p>Taking logarithms yields an approximately linear relationship:
 $$\log F(n) \approx h \log n$$</p>
-<p>The slope $h$ is called the <em>Hurst exponent</em> in DFA (or the generalized Hurst exponent $h(q)$ in MF-DFA).</p>
+<p>The slope <em>h</em> is called the <em>Hurst exponent</em> in DFA (or the generalized Hurst exponent <em>h</em>(<em>q</em>) in MF-DFA).</p>
 </section>
 <section id="build-the-dfa-profile">
 <h3>1. Build the DFA profile<a class="headerlink" href="#build-the-dfa-profile" title="Link to this heading">#</a></h3>
@@ -402,7 +402,7 @@ $$Y(t) = \sum_{i=1}^{N} (x_i - \overline{x})$$</p>
 </section>
 <section id="segment-and-detrend">
 <h3>2. Segment and detrend<a class="headerlink" href="#segment-and-detrend" title="Link to this heading">#</a></h3>
-<p>For each window size $n$, the profile $Y(t)$ is segmented into consecutive non-overlaping windows. Within each segment, a polynomial of degree $deg$ is fitted and removed (linear detrending corresponds to <code class="docutils literal notranslate"><span class="pre">deg=1</span></code>).</p>
+<p>For each window size <em>n</em>, the profile <em>Y</em>(<em>t</em>) is segmented into consecutive non-overlaping windows. Within each segment, a polynomial of degree <em>deg</em> is fitted and removed (linear detrending corresponds to <code class="docutils literal notranslate"><span class="pre">deg=1</span></code>).</p>
 <p>The remaining variability, after removing the local trend, reflects the intrinsic fluctuations of the signal at that specific timescale.</p>
 <p>The local fluctuation magnitude is quantified using the mean squared residuals of the polynomial fit. Optionally, with <code class="docutils literal notranslate"><span class="pre">overlap=True</span></code>, consecutive windows overlap by 50% to improve resolution at the expense of additional computation.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">circStudio</span></code>, segmentation is perform as follows:</p>
@@ -432,7 +432,7 @@ $$Y(t) = \sum_{i=1}^{N} (x_i - \overline{x})$$</p>
 <p>Each value in <code class="docutils literal notranslate"><span class="pre">local_fluctuations</span></code> quantifies how strongly the signal deviates from its local linear trend within a segment (in this case, of length 1000).</p>
 </section>
 <section id="averaging-fluctuations-q-2-standard-dfa">
-<h3>Averaging fluctuations ($q=2$, standard DFA)<a class="headerlink" href="#averaging-fluctuations-q-2-standard-dfa" title="Link to this heading">#</a></h3>
+<h3>Averaging fluctuations (<em>q=2</em>, standard DFA)<a class="headerlink" href="#averaging-fluctuations-q-2-standard-dfa" title="Link to this heading">#</a></h3>
 <p>Finally, we average the fluctuation magnitudes across all segments:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -448,12 +448,12 @@ $$Y(t) = \sum_{i=1}^{N} (x_i - \overline{x})$$</p>
 </div>
 </section>
 <section id="compute-the-fluctuation-function-f-n-standard-dfa">
-<h3>3. Compute the fluctuation function $F(n)$: standard DFA<a class="headerlink" href="#compute-the-fluctuation-function-f-n-standard-dfa" title="Link to this heading">#</a></h3>
-<p>Standard DFA corresponds to MF-DFA evaluated at $q = 2$. In MF-DFA, the parameter $q$ determines how strongly different types of fluctuations influence the overall fluctuation estimate (more details later once we dicuss MF-DFA). A $q = 2$ means that we will be treating fluctuations in a balanced manner.</p>
-<p>Rather than computing the fluctuation amplitude for a single window size, we now repeat the procedure across a range of time scales $n$. This allows us to evaluate how the magnitude of fluctuations changes as we “zoom out” from short to long temporal windows.</p>
+<h3>3. Compute the fluctuation function <em>F</em>(<em>n</em>): standard DFA<a class="headerlink" href="#compute-the-fluctuation-function-f-n-standard-dfa" title="Link to this heading">#</a></h3>
+<p>Standard DFA corresponds to MF-DFA evaluated at <em>q = 2</em>. In MF-DFA, the parameter <em>q</em> determines how strongly different types of fluctuations influence the overall fluctuation estimate (more details later once we dicuss MF-DFA). A <em>q = 2</em> means that we will be treating fluctuations in a balanced manner.</p>
+<p>Rather than computing the fluctuation amplitude for a single window size, we now repeat the procedure across a range of time scales <em>n</em>. This allows us to evaluate how the magnitude of fluctuations changes as we “zoom out” from short to long temporal windows.</p>
 <section id="define-the-time-scales">
 <h4>Define the time scales<a class="headerlink" href="#define-the-time-scales" title="Link to this heading">#</a></h4>
-<p>We construct a set of window sizes $n$ spanning ultradian to circadian scales:</p>
+<p>We construct a set of window sizes <em>n</em> spanning ultradian to circadian scales:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate array of time scales ranging from 10 min to 14400 min (24h)</span>
@@ -466,7 +466,7 @@ $$Y(t) = \sum_{i=1}^{N} (x_i - \overline{x})$$</p>
 </section>
 <section id="compute-the-fluctuation-function">
 <h4>Compute the fluctuation function<a class="headerlink" href="#compute-the-fluctuation-function" title="Link to this heading">#</a></h4>
-<p>We now compute $F(n)$ for each window size $n$:</p>
+<p>We now compute <em>F</em>(<em>n</em>) for each window size <em>n</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_n</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">Fractal</span><span class="o">.</span><span class="n">dfa</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">activity</span><span class="p">,</span> <span class="n">n_array</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4407,14 +4407,14 @@ if (outputEl) {{
 </section>
 <section id="estimate-the-hurst-exponent">
 <h4>Estimate the Hurst exponent<a class="headerlink" href="#estimate-the-hurst-exponent" title="Link to this heading">#</a></h4>
-<p>The estimated slope corresponds to the Hurst exponent $h$, which characterizes how fluctuation amplitudes scale with time.</p>
-<p>Conceptually, $h$ reflects the degree of long-range temporal organization (“memory”) in the signal:</p>
+<p>The estimated slope corresponds to the Hurst exponent <em>h</em>, which characterizes how fluctuation amplitudes scale with time.</p>
+<p>Conceptually, <em>h</em> reflects the degree of long-range temporal organization (“memory”) in the signal:</p>
 <ul class="simple">
-<li><p>$h = 0.5$ indicates random, uncorrelated fluctuations (no long-term structure/”memory”).</p></li>
-<li><p>$h &gt; 0.5$ indicates persistent dynamics: periods of relatively high (or low) activity tend to be followed by similar periods across different scales.</p></li>
-<li><p>$h &lt; 0.5* indicates anti-persistent dynamics: increases are more likely to be followed by decreases, reflecting more alternating behavior.</p></li>
+<li><p><em>h = 0.5</em> indicates random, uncorrelated fluctuations (no long-term structure/”memory”).</p></li>
+<li><p><em>h &gt; 0.5</em> indicates persistent dynamics: periods of relatively high (or low) activity tend to be followed by similar periods across different scales.</p></li>
+<li><p><em>h &lt; 0.5</em> indicates anti-persistent dynamics: increases are more likely to be followed by decreases, reflecting more alternating behavior.</p></li>
 </ul>
-<p>For actigraphy, $h &gt; 0.5$ suggests that activity patterns are not random but temporally organized: variability observed over short intervals (e.g., minutes) is statistically related to the variability observed over longer intervals (e.g., hours).</p>
+<p>For actigraphy, <em>h &gt; 0.5</em> suggests that activity patterns are not random but temporally organized: variability observed over short intervals (e.g., minutes) is statistically related to the variability observed over longer intervals (e.g., hours).</p>
 <p>In this sense, the Hurst exponent provides a compact measure of how strongly behavioral activity is structure across time scales.</p>
 <p>We can estimate the Hurst exponent directly:</p>
 <div class="cell docutils container">
@@ -4434,14 +4434,14 @@ if (outputEl) {{
 </section>
 <section id="mf-dfa">
 <h3>MF-DFA<a class="headerlink" href="#mf-dfa" title="Link to this heading">#</a></h3>
-<p>MF-DFA generalizes DFA by repeating the analysis across multiple values of $q$. As mentioned earlier, the role of $q$ is to shift the emphasis of the fluctuation estimate:</p>
+<p>MF-DFA generalizes DFA by repeating the analysis across multiple values of <em>q</em>. As mentioned earlier, the role of <em>q</em> is to shift the emphasis of the fluctuation estimate:</p>
 <ul class="simple">
-<li><p>Larger (positive) $q$ values give more weight to segments with large deviations from the local trend (e.g., peaks, episodes of high activity).</p></li>
-<li><p>Smaller (or negative) $q$ values give more weight to segments with small deviations (quiet periods, subtle variability).</p></li>
+<li><p>Larger (positive) <em>q</em> values give more weight to segments with large deviations from the local trend (e.g., peaks, episodes of high activity).</p></li>
+<li><p>Smaller (or negative) <em>q</em> values give more weight to segments with small deviations (quiet periods, subtle variability).</p></li>
 </ul>
-<p>As a result, MF-DFA produces a family of fluctuation curves, $F(n,q)$, rather than a single curve $F(n)$</p>
+<p>As a result, MF-DFA produces a family of fluctuation curves, <em>F</em>(<em>n</em>,<em>q</em>), rather than a single curve <em>F</em>(<em>n</em>)</p>
 <section id="compute-mf-dfa-fluctuations-across-multiple-q-orders">
-<h4>Compute MF-DFA fluctuations across multiple $q$-orders<a class="headerlink" href="#compute-mf-dfa-fluctuations-across-multiple-q-orders" title="Link to this heading">#</a></h4>
+<h4>Compute MF-DFA fluctuations across multiple <em>q</em>-orders<a class="headerlink" href="#compute-mf-dfa-fluctuations-across-multiple-q-orders" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify q values (orders)</span>
@@ -4453,10 +4453,10 @@ if (outputEl) {{
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">mf_f_n</span></code> is a 2D array with shape <code class="docutils literal notranslate"><span class="pre">(len(n_array),</span> <span class="pre">len(q_array))</span></code>, where each column corresponds to one $q$-order.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mf_f_n</span></code> is a 2D array with shape <code class="docutils literal notranslate"><span class="pre">(len(n_array),</span> <span class="pre">len(q_array))</span></code>, where each column corresponds to one <em>q</em>-order.</p>
 </section>
 <section id="visualize-scaling-curves-across-q">
-<h4>Visualize scaling curves across $q$<a class="headerlink" href="#visualize-scaling-curves-across-q" title="Link to this heading">#</a></h4>
+<h4>Visualize scaling curves across <em>q</em><a class="headerlink" href="#visualize-scaling-curves-across-q" title="Link to this heading">#</a></h4>
 <p>A useful first check is whether the curves are approximately linear across of scales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4506,8 +4506,8 @@ if (outputEl) {{
 </div>
 </section>
 <section id="estimate-the-generalized-hurst-exponent-h-q">
-<h4>Estimate the generalized Hurst exponent $h(q)$<a class="headerlink" href="#estimate-the-generalized-hurst-exponent-h-q" title="Link to this heading">#</a></h4>
-<p>To summarize the MF-DFA results, we estimate the slope of each $\log F(n,q)$ versus $\log n$ relationship. This yields the generalized Hurst exponent function $h(q)$:</p>
+<h4>Estimate the generalized Hurst exponent <em>h</em>(<em>q</em>)<a class="headerlink" href="#estimate-the-generalized-hurst-exponent-h-q" title="Link to this heading">#</a></h4>
+<p>To summarize the MF-DFA results, we estimate the slope of each <em>log</em> <em>F</em>(<em>n</em>,<em>q</em>) versus <em>log</em> <em>n</em> relationship. This yields the generalized Hurst exponent function <em>h</em>(<em>q</em>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mf_h_q</span> <span class="o">=</span> <span class="p">[</span>
@@ -4589,17 +4589,17 @@ if (outputEl) {{
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-dfa-profile">1. Build the DFA profile</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#segment-and-detrend">2. Segment and detrend</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-local-detrended-fluctuations">Computing local detrended fluctuations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#averaging-fluctuations-q-2-standard-dfa">Averaging fluctuations ($q=2$, standard DFA)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fluctuation-function-f-n-standard-dfa">3. Compute the fluctuation function $F(n)$: standard DFA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#averaging-fluctuations-q-2-standard-dfa">Averaging fluctuations (<em>q=2</em>, standard DFA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fluctuation-function-f-n-standard-dfa">3. Compute the fluctuation function <em>F(n)</em>: standard DFA</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-time-scales">Define the time scales</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-fluctuation-function">Compute the fluctuation function</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-the-hurst-exponent">Estimate the Hurst exponent</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mf-dfa">MF-DFA</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-mf-dfa-fluctuations-across-multiple-q-orders">Compute MF-DFA fluctuations across multiple $q$-orders</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-scaling-curves-across-q">Visualize scaling curves across $q$</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-the-generalized-hurst-exponent-h-q">Estimate the generalized Hurst exponent $h(q)$</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-mf-dfa-fluctuations-across-multiple-q-orders">Compute MF-DFA fluctuations across multiple <em>q</em>-orders</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-scaling-curves-across-q">Visualize scaling curves across <em>q</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-the-generalized-hurst-exponent-h-q">Estimate the generalized Hurst exponent <em>h</em>(<em>q</em>)</a></li>
 </ul>
 </li>
 </ul>
