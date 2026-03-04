@@ -329,7 +329,7 @@
   <section id="mathematical-models-of-circadian-rhythms-using-light-intensity-data">
 <h1>Mathematical models of circadian rhythms using light intensity data<a class="headerlink" href="#mathematical-models-of-circadian-rhythms-using-light-intensity-data" title="Link to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">circStudio</span></code> implements a suite of mathematical models developed to characterize and predict human circadian physiology, including: <code class="docutils literal notranslate"><span class="pre">Forger</span></code>, <code class="docutils literal notranslate"><span class="pre">Jewett</span></code>, <code class="docutils literal notranslate"><span class="pre">HannaySP</span></code>, <code class="docutils literal notranslate"><span class="pre">HannayTP</span></code>, <code class="docutils literal notranslate"><span class="pre">Hilaire07</span></code>, <code class="docutils literal notranslate"><span class="pre">Breslow13</span></code> and <code class="docutils literal notranslate"><span class="pre">Skeldon23</span></code>.</p>
-<p>These models enable the estimation of key circadian phase markers, such as the core body temperature minimum ($CBT_min$) and dim light melatonin onset ($DLMO$). In the case of the <code class="docutils literal notranslate"><span class="pre">Skeldon23</span></code>, you can also simulate or predict sleep-wake dynamics.</p>
+<p>These models enable the estimation of key circadian phase markers, such as the core body temperature minimum (CBT<sub>min</sub>) and dim light melatonin onset (DLMO). In the case of the <code class="docutils literal notranslate"><span class="pre">Skeldon23</span></code>, you can also simulate or predict sleep-wake dynamics.</p>
 <p>We begin by importing the required libraries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4354,7 +4354,7 @@ By default, the sleep schedule is inferred using the Roenneberg algorithm; howev
 </section>
 <section id="visualize-results-and-extract-biological-quantities">
 <h2>3. Visualize results and extract biological quantities<a class="headerlink" href="#visualize-results-and-extract-biological-quantities" title="Link to this heading">#</a></h2>
-<p>From the model output, it is possible to <strong>extract a series of predicted $DLMOs</strong>. By default, these values are expressed in hours relative to the start of the recording. To convert them to a 24-hour clock format, the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">24</span></code>) can be applied:</p>
+<p>From the model output, it is possible to <strong>extract a series of predicted DLMOs</strong>. By default, these values are expressed in hours relative to the start of the recording. To convert them to a 24-hour clock format, the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">24</span></code>) can be applied:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain array of daily DLMOs</span>
@@ -4474,8 +4474,8 @@ if (outputEl) {{
 </section>
 <section id="inferring-sleep-patterns-from-light-trajectories-using-the-skeldon23-model">
 <h2>4. Inferring sleep patterns from light trajectories using the <code class="docutils literal notranslate"><span class="pre">Skeldon23</span></code> model<a class="headerlink" href="#inferring-sleep-patterns-from-light-trajectories-using-the-skeldon23-model" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011743">Skeldon and colleagues (2023)</a> developed a Homeostatic-Circadian-Light (HCL) model that combines circadian dynamics with a homeostatic sleep drive to predict sleep timing from light exposure. Specifically, the model incorporates a homeostatic process, $H(t)$, which accumulates during wakefulness and decays exponentially during sleep.</p>
-<p>The dynamics of $H(t)$, in combination with the circadian oscillator, enable the simulation and prediction of sleep-wake patterns under a given light schedule.</p>
+<p><a class="reference external" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011743">Skeldon and colleagues (2023)</a> developed a Homeostatic-Circadian-Light (HCL) model that combines circadian dynamics with a homeostatic sleep drive to predict sleep timing from light exposure. Specifically, the model incorporates a homeostatic process, <em>H</em>(<em>t</em>), which accumulates during wakefulness and decays exponentially during sleep.</p>
+<p>The dynamics of <em>H</em>(<em>t</em>), in combination with the circadian oscillator, enable the simulation and prediction of sleep-wake patterns under a given light schedule.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create new instance of Skeldon23 model</span>
@@ -4560,30 +4560,30 @@ if (outputEl) {{
 </section>
 <section id="model-comparison-utility">
 <h2>6. Model Comparison Utility<a class="headerlink" href="#model-comparison-utility" title="Link to this heading">#</a></h2>
-<p>ModelComparer implements a translating layer between the Cartesian state-space representation of Kronauer (e.g., Forger, Jewett, Hilaire07) models and the phase-based representation of the HannaySP model. Specifically, it reconstructs the Forger model state variables ($x$ and $x_c$) from the collective phase predicted by HannaySP using a parametric trigonometric mapping. Geometrically, this mapping corresponds to embedding the phase oscillator on an ellipse in the ($x$, $x_c$) plane.</p>
+<p>ModelComparer implements a translating layer between the Cartesian state-space representation of Kronauer (e.g., Forger, Jewett, Hilaire07) models and the phase-based representation of the HannaySP model. Specifically, it reconstructs the Forger model state variables (<em>x</em> and <em>x</em><sub><em>c</em></sub>) from the collective phase predicted by HannaySP using a parametric trigonometric mapping. Geometrically, this mapping corresponds to embedding the phase oscillator on an ellipse in the (<em>x</em>, <em>x</em><sub><em>c</em></sub>) plane.</p>
 <section id="translation-layer-hannaysp-phase-forger-state-variables">
 <h3>Translation layer (HannaySP phase → Forger state variables)<a class="headerlink" href="#translation-layer-hannaysp-phase-forger-state-variables" title="Link to this heading">#</a></h3>
-<p>Let $\phi(t)$ denote the HannaySP collective phase. ModelComparer approximates the Forger state variables as:</p>
+<p>Let <em>φ</em>(<em>t</em>) denote the HannaySP collective phase. ModelComparer approximates the Forger state variables as:</p>
 <p>$$
-\hat{x}(t) = a_1 \cos!\big(p_1 ,\phi(t)\big) + m_1
+\hat{x}(t) = a_1 \cos\big(p_1 ,\phi(t)\big) + m_1
 $$</p>
 <p>$$
-\hat{x}_c(t) = -,a_2 \sin!\big(p_2 ,\phi(t)\big) + m_2
+\hat{x}_c(t) = -,a_2 \sin\big(p_2 ,\phi(t)\big) + m_2
 $$</p>
 <p>where:</p>
 <ul class="simple">
-<li><p>$a_1$ and $a_2$ are amplitude (scaling) parameters.</p></li>
-<li><p>$p_1$ and $p_2$ are phase-scaling parameters.</p></li>
-<li><p>$m_1$ and $m_2$ are offsets (centering terms).</p></li>
+<li><p><em>a</em><sub><em>1</em></sub> and <em>a</em><sub><em>2</em></sub> are amplitude (scaling) parameters.</p></li>
+<li><p><em>p</em><sub><em>1</em></sub> and <em>p</em><sub><em>2</em></sub> are phase-scaling parameters.</p></li>
+<li><p><em>m</em><sub><em>1</em></sub> and <em>m</em><sub><em>2</em></sub> are offsets (centering terms).</p></li>
 </ul>
 </section>
 <section id="parameter-estimation">
 <h3>Parameter estimation<a class="headerlink" href="#parameter-estimation" title="Link to this heading">#</a></h3>
-<p>To adapt the translating layer to a given light schedule, ModelComparer can estimate ($a_1$, $m_1$, $p_1$) and ($a_2$, $m_2$, $p_2$) via non-linear least squares, fitting $x(t)$ and $x_c(t)$ from the Forger model using the equations above.</p>
+<p>To adapt the translating layer to a given light schedule, ModelComparer can estimate (<em>a</em><sub><em>1</em></sub>, <em>m</em><sub><em>1</em></sub>, <em>p</em><sub><em>1</em></sub>) and (<em>a</em><sub><em>2</em></sub>, <em>m</em><sub><em>2</em></sub>, <em>p</em><sub><em>2</em></sub>) via non-linear least squares, fitting <em>x</em>(<em>t</em>) and <em>x</em><sub><em>c</em></sub>(<em>t</em>) from the Forger model using the equations above.</p>
 </section>
 <section id="interpretation-and-expected-behavior">
 <h3>Interpretation and expected behavior<a class="headerlink" href="#interpretation-and-expected-behavior" title="Link to this heading">#</a></h3>
-<p>Empirically, a substantial proportion of the variability in the Forger state variables can be captured by $sin(φ(t))$ and $cos(φ(t))$, making this mapping a practical bridge between the physiologically interpretable Hannay model and Kronauer-based models.</p>
+<p>Empirically, a substantial proportion of the variability in the Forger state variables can be captured by <em>sin</em>(<em>φ</em>(<em>t</em>)) and <em>cos</em>(<em>φ</em>(<em>t</em>)), making this mapping a practical bridge between the physiologically interpretable Hannay model and Kronauer-based models.</p>
 <p>The mapping is typically most accurate under stable, regular light–dark schedules (i.e., consistent lights-on and lights-off timing), and deviations tend to increase as schedules become more irregular, multi-phasic, or rapidly shifting (conditions under which amplitude dynamics and transient effects become more prominent).</p>
 </section>
 <section id="usage-example">
@@ -4608,7 +4608,7 @@ $$</p>
 </div>
 </div>
 </div>
-<p>To quantify how well the phase-based reconstruction captures the Forger state variables, we compute the cumulative root-mean-square error (RMSE) between the observed states ($x$, $x_c$) and their phase-derived predictions $\hat{x}(t)$ and $\hat{x}_c(t)$.</p>
+<p>To quantify how well the phase-based reconstruction captures the Forger state variables, we compute the cumulative root-mean-square error (RMSE) between the observed states (<em>x</em>, <em>x</em><sub>c</sub>) and their phase-derived predictions <em>x̂</em>(<em>t</em>) and <em>x̂</em><sub>c</sub>(<em>t</em>).</p>
 <p>RMSE quantifies how different are predicted and observed oscillator states, with a large RMSE indicating a larger disagreement between the predicted and observed values. By using cumulative RMSE, we assess how this discrepancy evolves over time, revealing how quickly the two models converge under a given light schedule.</p>
 <p>When plotted over time, the cumulative RMSE curves typically exhibits an approximately exponential decay, reflecting the gradual entrainment and stabilization of the oscillator. The rate o decay therefore provides a quantitative measure of how efficiently the translating layer captures the evolving oscillator dynamics.</p>
 <p>To characterize this convergence behavior, <code class="docutils literal notranslate"><span class="pre">circStudio</span></code> fits an exponential decay function to the cumulative RMSE curves and estimates the corresponding half-time, representing the time required for the prediction error to decrease by 50% (it quantifies how rapidly the phase-based reconstruction stabilizes):</p>
@@ -4649,7 +4649,7 @@ $$</p>
 </div>
 </div>
 </div>
-<p>For the schedule shown here, the cumulative RMSE for $x_c$ ($rmse_xc$) stabilizes around index ~66 of the recording (2015-07-04):</p>
+<p>For the schedule shown here, the cumulative RMSE for <em>x</em><sub>c</sub> (<en>rmse</em><em><sub>x<sub>c</sub></sub></em>) stabilizes around index ~66 of the recording (2015-07-04):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
@@ -4662,7 +4662,7 @@ $$</p>
 </div>
 </div>
 </div>
-<p>Notice the estimated half-time for $rmse_x$ is infinite. This occurs when the exponential fit does not yield a positive decay constant, indicating that the cumulative error does not show a clear exponential convergence within the observed time window.</p>
+<p>Notice the estimated half-time for <em>rmse</em><sub><em>x</em></sub> is infinite. This occurs when the exponential fit does not yield a positive decay constant, indicating that the cumulative error does not show a clear exponential convergence within the observed time window.</p>
 <p>In practical terms, an infinite half-time may suggest that the translating layer does not fully stabilize under the given schedule, either because the light pattern is insufficiently regular to promote strong entrainment or because the recording duration is too short to capture the decay of transient dynamics. In such cases, the prediction error does not decrease in a manner consistent with exponential relaxation, and no finite half-time can be defined.</p>
 </section>
 </section>
