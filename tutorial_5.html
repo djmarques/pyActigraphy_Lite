@@ -347,14 +347,14 @@
 </div>
 </div>
 <p>Single-component cosinor analysis models rhythmic biological signals by fitting a sinusoidal function to time-series data (e.g., activity, light exposure, or temperature). This approach enables the quantitative estimation of key rhythm parameters. The regression model is expressed as:</p>
-<p>$$Y(t) = M + A \cos!\left(\frac{2\pi t}{\tau} + \phi\right) + \varepsilon(t)$$</p>
+<p>$$Y(t) = M + A \cos\left(\frac{2\pi t}{\tau} + \phi\right) + \varepsilon(t)$$</p>
 <p>Where:</p>
 <ul class="simple">
-<li><p>M is the MESOR (Midline Estimating Statistic Of Rhythm), representing the rhythm-adjusted mean,</p></li>
-<li><p>A is the amplitude, defined as the half the peak-to-trough variation of the fitted curve,</p></li>
-<li><p>$\tau$ is the assumed period (the duration of one cycle, typically ~24h),</p></li>
-<li><p>$\phi$ is the acrophase, representing the timing of the peak of the fitted rhythm within each cycle,</p></li>
-<li><p>$\varepsilon(t)$ is the residual error term.</p></li>
+<li><p><em>M</em> is the MESOR (Midline Estimating Statistic Of Rhythm), representing the rhythm-adjusted mean,</p></li>
+<li><p><em>A</em> is the amplitude, defined as the half the peak-to-trough variation of the fitted curve,</p></li>
+<li><p><em>τ</em> is the assumed period (the duration of one cycle, typically ~24h),</p></li>
+<li><p><em>φ</em> is the acrophase, representing the timing of the peak of the fitted rhythm within each cycle,</p></li>
+<li><p><em>ε</em>(<em>t</em>) is the residual error term.</p></li>
 </ul>
 <p>In <code class="docutils literal notranslate"><span class="pre">circStudio</span></code>, the cosinor model is implemented following the same principles as in <code class="docutils literal notranslate"><span class="pre">pyActigraphy</span></code> and is consistent with the general design philosophy of other circadian models in the package. Specifically, the workflow involves instantiating a cosinor model and fitting it to an actigraphy-derived time series:</p>
 <div class="cell docutils container">
